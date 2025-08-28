@@ -1,0 +1,850 @@
+<!doctype html>
+<html lang="bn">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>BD FREELANCER — বাংলাদেশি ফ্রিল্যান্সিং বাজার</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Noto+Sans+Bengali:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card: #0b1220;
+      --muted: #94a3b8;
+      --accent: #06b6d4;
+      --accent-2: #7c3aed;
+      --transition: all 0.3s ease;
+    }
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    html, body {
+      height: 100%;
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, 'Noto Sans Bengali', sans-serif;
+      background: linear-gradient(180deg, #071028 0%, #071a2b 60%);
+      color: #e6eef8;
+      scroll-behavior: smooth;
+    }
+    
+    .container {
+      max-width: 1100px;
+      margin: 32px auto;
+      padding: 24px;
+    }
+
+    /* Header */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    
+    .logo {
+      width: 56px;
+      height: 56px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      color: #021126;
+      transition: var(--transition);
+    }
+    
+    .logo:hover {
+      transform: rotate(5deg);
+    }
+    
+    .brand h1 {
+      font-size: 18px;
+      margin: 0;
+    }
+    
+    nav {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      padding: 8px 12px;
+      border-radius: 8px;
+      transition: var(--transition);
+    }
+    
+    nav a:hover {
+      background: rgba(255, 255, 255, 0.05);
+      color: #fff;
+    }
+    
+    nav a.primary {
+      background: rgba(255, 255, 255, 0.06);
+      color: #fff;
+    }
+    
+    nav a.primary:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    /* Hero */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 28px;
+      margin-top: 28px;
+      align-items: center;
+    }
+    
+    .hero-card {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      padding: 28px;
+      border-radius: 16px;
+      transition: var(--transition);
+    }
+    
+    .hero-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+    
+    .kicker {
+      color: var(--accent);
+      font-weight: 700;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .hero h2 {
+      margin: 0 0 12px;
+      font-size: 28px;
+      line-height: 1.05;
+    }
+    
+    .hero p.lead {
+      color: var(--muted);
+      margin: 0 0 18px;
+      line-height: 1.6;
+    }
+    
+    .actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    
+    .btn {
+      padding: 12px 16px;
+      border-radius: 12px;
+      border: 0;
+      cursor: pointer;
+      font-weight: 600;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .btn-main {
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      color: #021126;
+    }
+    
+    .btn-main:hover {
+      opacity: 0.9;
+      transform: translateY(-2px);
+    }
+    
+    .btn-outline {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      color: var(--muted);
+    }
+    
+    .btn-outline:hover {
+      background: rgba(255, 255, 255, 0.03);
+      border-color: rgba(255, 255, 255, 0.1);
+    }
+
+    /* Quick stats */
+    .stats {
+      display: flex;
+      gap: 12px;
+      margin-top: 18px;
+    }
+    
+    .stat {
+      background: rgba(255, 255, 255, 0.02);
+      padding: 12px;
+      border-radius: 10px;
+      flex: 1;
+      text-align: center;
+      transition: var(--transition);
+    }
+    
+    .stat:hover {
+      background: rgba(255, 255, 255, 0.04);
+    }
+    
+    .stat strong {
+      display: block;
+      font-size: 18px;
+      color: #fff;
+    }
+
+    /* Right column card */
+    .signup .field {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 16px;
+    }
+    
+    input, select {
+      padding: 12px;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(0, 0, 0, 0.2);
+      color: inherit;
+      transition: var(--transition);
+    }
+    
+    input:focus, select:focus {
+      border-color: var(--accent);
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.1);
+    }
+    
+    .small {
+      font-size: 13px;
+      color: var(--muted);
+    }
+    
+    .secure {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 10px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    /* Features */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 48px;
+    }
+    
+    .feature {
+      background: rgba(255, 255, 255, 0.02);
+      padding: 24px;
+      border-radius: 12px;
+      transition: var(--transition);
+    }
+    
+    .feature:hover {
+      background: rgba(255, 255, 255, 0.04);
+      transform: translateY(-5px);
+    }
+    
+    .feature h4 {
+      margin: 0 0 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .feature-icon {
+      width: 24px;
+      height: 24px;
+      color: var(--accent);
+    }
+    
+    .feature p {
+      color: var(--muted);
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    /* How it works */
+    .how {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      margin-top: 48px;
+      gap: 18px;
+    }
+    
+    .step {
+      background: rgba(255, 255, 255, 0.01);
+      padding: 24px;
+      border-radius: 12px;
+      transition: var(--transition);
+      position: relative;
+    }
+    
+    .step:hover {
+      background: rgba(255, 255, 255, 0.03);
+    }
+    
+    .step-number {
+      position: absolute;
+      top: -12px;
+      left: -12px;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      color: #021126;
+    }
+    
+    .step h4 {
+      margin: 0 0 12px;
+      padding-left: 24px;
+    }
+    
+    .step p {
+      color: var(--muted);
+      margin: 0;
+      line-height: 1.6;
+    }
+    
+    footer {
+      margin-top: 60px;
+      border-top: 1px solid rgba(255, 255, 255, 0.03);
+      padding-top: 24px;
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    
+    footer a {
+      color: var(--muted);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+    
+    footer a:hover {
+      color: #fff;
+    }
+
+    /* language toggle */
+    .lang-toggle {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+    
+    .lang-toggle button {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      padding: 6px 12px;
+      border-radius: 8px;
+      color: var(--muted);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    
+    .lang-toggle button:hover {
+      background: rgba(255, 255, 255, 0.04);
+    }
+    
+    .lang-toggle button.active {
+      background: rgba(255, 255, 255, 0.04);
+      color: #fff;
+    }
+
+    /* Form validation */
+    .error-message {
+      color: #f87171;
+      font-size: 12px;
+      margin-top: 4px;
+      display: none;
+    }
+    
+    input.error, select.error {
+      border-color: #f87171;
+    }
+
+    /* Success message */
+    .success-message {
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.2);
+      color: #10b981;
+      padding: 12px;
+      border-radius: 8px;
+      margin-top: 16px;
+      display: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 980px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+      
+      .features {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .how {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    @media (max-width: 640px) {
+      .features {
+        grid-template-columns: 1fr;
+      }
+      
+      .brand h1 {
+        font-size: 16px;
+      }
+      
+      .stats {
+        flex-direction: column;
+      }
+      
+      .actions {
+        flex-direction: column;
+      }
+      
+      footer {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+    /* accessibility focus */
+    a:focus, button:focus, input:focus, select:focus {
+      outline: 3px solid rgba(6, 182, 212, 0.12);
+      outline-offset: 2px;
+    }
+
+    /* Animation for counters */
+    @keyframes countUp {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .counting {
+      animation: countUp 0.5s ease forwards;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo" aria-hidden>BD</div>
+        <div>
+          <h1 id="site-title">BD FREELANCER</h1>
+          <div class="small" id="site-tag">নিরাপদ, সহজ, সবার জন্য ফ্রিল্যান্সিং</div>
+        </div>
+      </div>
+
+      <nav aria-label="Main navigation">
+        <div class="lang-toggle" role="tablist" aria-label="Language selector">
+          <button id="bn-btn" class="active" role="tab" aria-selected="true">বাংলা</button>
+          <button id="en-btn" role="tab" aria-selected="false">English</button>
+        </div>
+        <a href="#features">Features</a>
+        <a href="#how">How it works</a>
+        <a class="primary" href="#signup">Get started</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-card" id="hero-left">
+          <div class="kicker">
+            <svg class="feature-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+            </svg>
+            <span data-en="For Students & Jobseekers" data-bn="শিক্ষার্থী ও বেকারদের জন্য">শিক্ষার্থী ও বেকারদের জন্য</span>
+          </div>
+          <h2 data-en="BD FREELANCER — Your local freelancing market" data-bn="BD FREELANCER — আপনার স্থানীয় ফ্রিল্যান্সিং বাজার">BD FREELANCER — আপনার স্থানীয় ফ্রিল্যান্সিং বাজার</h2>
+          <p class="lead" data-en="Free for all Bangladeshi students and unemployed. Secure escrow payments, easy profiles in Bangla & English." data-bn="সকল বাংলাদেশি শিক্ষার্থী ও বেকারদের জন্য সম্পূর্ণ ফ্রি। নিরাপদ এসক্রো পেমেন্ট, সহজ প্রোফাইল — বাংলা ও ইংরেজি।">সকল বাংলাদেশি শিক্ষার্থী ও বেকারদের জন্য সম্পূর্ণ ফ্রি। নিরাপদ এসক্রো পেমেন্ট, সহজ প্রোফাইল — বাংলা ও ইংরেজি।</p>
+
+          <div class="actions">
+            <button class="btn btn-main" id="create-profile">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 5v14M5 12h14"></path>
+              </svg>
+              Create Profile — প্রোফাইল তৈরি
+            </button>
+            <button class="btn btn-outline" id="browse-jobs">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+              Browse Jobs — কাজ দেখুন
+            </button>
+          </div>
+
+          <div class="stats" aria-hidden>
+            <div class="stat">
+              <strong id="stat-1">0</strong>
+              <span data-en="Verified Jobs" data-bn="ভেরিফাইড কাজ">ভেরিফাইড কাজ</span>
+            </div>
+            <div class="stat">
+              <strong id="stat-2">0</strong>
+              <span data-en="Trusted Payments" data-bn="নিরাপদ পেমেন্ট">নিরাপদ পেমেন্ট</span>
+            </div>
+            <div class="stat">
+              <strong id="stat-3">100%</strong>
+              <span data-en="Free for Students" data-bn="শিক্ষার্থীদের জন্য ফ্রি">শিক্ষার্থীদের জন্য ফ্রি</span>
+            </div>
+          </div>
+        </div>
+
+        <aside class="hero-card signup" id="signup">
+          <h3 data-en="Get started in 60 seconds" data-bn="৬০ সেকেন্ডে শুরু করুন">৬০ সেকেন্ডে শুরু করুন</h3>
+          <form id="signup-form">
+            <div class="field">
+              <label class="small" for="name" data-en="Full name" data-bn="নাম">নাম</label>
+              <input id="name" placeholder="আপনার নাম" required>
+              <div class="error-message" id="name-error" data-en="Please enter your name" data-bn="অনুগ্রহ করে আপনার নাম লিখুন">অনুগ্রহ করে আপনার নাম লিখুন</div>
+            </div>
+            <div class="field">
+              <label class="small" for="email" data-en="Email or Mobile" data-bn="ইমেইল বা মোবাইল">ইমেইল বা মোবাইল</label>
+              <input id="email" placeholder="example@mail.com / 01XXXXXXXXX" required>
+              <div class="error-message" id="email-error" data-en="Please enter a valid email or mobile number" data-bn="অনুগ্রহ করে একটি বৈধ ইমেইল বা মোবাইল নম্বর লিখুন">অনুগ্রহ করে একটি বৈধ ইমেইল বা মোবাইল নম্বর লিখুন</div>
+            </div>
+            <div class="field">
+              <label class="small" for="role" data-en="I am a" data-bn="আমি">আমি</label>
+              <select id="role">
+                <option value="freelancer" data-bn="ফ্রিল্যান্সার">ফ্রিল্যান্সার</option>
+                <option value="client" data-bn="ক্লায়েন্ট">ক্লায়েন্ট</option>
+                <option value="student" data-bn="শিক্ষার্থী">শিক্ষার্থী</option>
+              </select>
+            </div>
+
+            <div style="display:flex;gap:8px;margin-top:8px;flex-wrap:wrap;">
+              <button type="submit" class="btn btn-main" id="signup-btn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+                Sign up / সাইন আপ
+              </button>
+              <button type="button" class="btn btn-outline" id="learn-more">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="12" y1="16" x2="12" y2="12"></line>
+                  <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                </svg>
+                Learn more
+              </button>
+            </div>
+
+            <div class="secure" aria-live="polite">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden>
+                <path d="M12 1.75L3 5v6.5c0 5.25 3.75 10.25 9 11.75 5.25-1.5 9-6.5 9-11.75V5l-9-3.25z" stroke="currentColor" stroke-width="0.9"/>
+              </svg>
+              <span data-en="Escrow-secured payments" data-bn="এসক্রো-নিরাপদ পেমেন্ট">এসক্রো-নিরাপদ পেমেন্ট</span>
+            </div>
+          </form>
+
+          <div class="success-message" id="success-message">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+              <polyline points="22 4 12 14.01 9 11.01"></polyline>
+            </svg>
+            <span id="success-text" data-en="Registration successful! Check your email for verification." data-bn="নিবন্ধন সফল! যাচাইকরণের জন্য আপনার ইমেইল চেক করুন।">নিবন্ধন সফল! যাচাইকরণের জন্য আপনার ইমেইল চেক করুন।</span>
+          </div>
+
+          <div class="small" style="margin-top:10px">প্ল্যাটফর্মটি সম্পূর্ণ ফ্রি — শিক্ষার্থী ও বেকারদের জন্য উপহৃত।</div>
+        </aside>
+      </section>
+
+      <section id="features" class="features" aria-labelledby="features-title">
+        <div class="feature">
+          <h4>
+            <svg class="feature-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 0 1 6.5 9c-2.648 0-5.297.5-7.548 1.5m16 0a18.022 18.022 0 0 1 4.5 6.5c2.648 0 5.297-.5 7.548-1.5"></path>
+            </svg>
+            <span data-en="Bilingual Profiles" data-bn="দ্বিভাষিক প্রোফাইল">দ্বিভাষিক প্রোফাইল</span>
+          </h4>
+          <p data-en="Create your profile in Bangla and English to reach local and global buyers." data-bn="বাংলা ও ইংরেজিতে প্রোফাইল তৈরি করুন — স্থানীয় ও বৈশ্বিক গ্রাহকের কাছে পৌঁছান।">বাংলা ও ইংরেজিতে প্রোফাইল তৈরি করুন — স্থানীয় ও বৈশ্বিক গ্রাহকের কাছে পৌঁছান।</p>
+        </div>
+
+        <div class="feature">
+          <h4>
+            <svg class="feature-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            </svg>
+            <span data-en="Escrow & Dispute Resolution" data-bn="এসক্রো ও বিবাদ নিষ্পত্তি">এসক্রো ও বিবাদ নিষ্পত্তি</span>
+          </h4>
+          <p data-en="Payments are held in escrow until both sides approve the work. Local dispute support in Bangla." data-bn="কাজ গ্রহণ হওয়া পর্যন্ত পেমেন্ট এসক্রোতে রাখা হয়। বাংলা ভাষায় বিতর্ক সমর্থন।">কাজ গ্রহণ হওয়া পর্যন্ত পেমেন্ট এসক্রোতে রাখা হয়। বাংলা ভাষায় বিতর্ক সমর্থন।</p>
+        </div>
+
+        <div class="feature">
+          <h4>
+            <svg class="feature-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2zm20 0h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+            </svg>
+            <span data-en="Free for Students" data-bn="শিক্ষার্থীদের জন্য ফ্রী">শিক্ষার্থীদের জন্য ফ্রী</span>
+          </h4>
+          <p data-en="Verified student program: zero platform fees for registered students and documented jobseekers." data-bn="নির্বাচিত ছাত্র প্রোগ্রাম: নিবন্ধিত শিক্ষার্থী ও চাকরিচ্যুতদের জন্য প্ল্যাটফর্ম ফি শূন্য।">নির্বাচিত ছাত্র প্রোগ্রাম: নিবন্ধিত শিক্ষার্থী ও চাকরিচ্যুতদের জন্য প্ল্যাটফর্ম ফি শূন্য।</p>
+        </div>
+      </section>
+
+      <section id="how" class="how" aria-labelledby="how-title">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h4 data-en="1. Register" data-bn="১। নিবন্ধন">১। নিবন্ধন</h4>
+          <p data-en="Sign up with email or mobile, verify identity (student ID optional)." data-bn="ইমেইল বা মোবাইল দিয়ে সাইন আপ করুন, পরিচয় নিশ্চিত করুন (শিক্ষার্থী আইডি ঐচ্ছিক)।">ইমেইল বা মোবাইল দিয়ে সাইন আপ করুন, পরিচয় নিশ্চিত করুন (শিক্ষার্থী আইডি ঐচ্ছিক)।</p>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <h4 data-en="2. Create Simple Profile" data-bn="২। সহজ প্রোফাইল তৈরি">২। সহজ প্রোফাইল তৈরি</h4>
+          <p data-en="Add skills, samples and a short intro both in Bangla and English." data-bn="দুই ভাষায় দক্ষতা, নমুনা ও সংক্ষিপ্ত পরিচিতি যোগ করুন।">দুই ভাষায় দক্ষতা, নমুনা ও সংক্ষিপ্ত পরিচিতি যোগ করুন।</p>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <h4 data-en="3. Get Jobs & Secure Payment" data-bn="৩। কাজ পান ও নিরাপদ পেমেন্ট">৩। কাজ পান ও নিরাপদ পেমেন্ট</h4>
+          <p data-en="Clients fund escrow, freelancers deliver, funds released on approval." data-bn="ক্লায়েন্ট এসক্রো তহবিল রাখেন, ফ্রিল্যান্সার কাজ দেন, অনুমোদনের পরে তহবিল মুক্তি।">ক্লায়েন্ট এসক্রো তহবিল রাখেন, ফ্রিল্যান্সার কাজ দেন, অনুমোদনের পরে তহবিল মুক্তি।</p>
+        </div>
+        <div class="step">
+          <div class="step-number">4</div>
+          <h4 data-en="4. Grow & Withdraw" data-bn="৪। বৃদ্ধি ও উত্তোলন">৪। বৃদ্ধি ও উত্তোলন</h4>
+          <p data-en="Withdraw locally to Bangladeshi bank/mobile financial services or reinvest in skills." data-bn="স্থানীয় ব্যাংক/মোবাইল ফাইন্যান্সে উত্তোলন করুন বা দক্ষতায় পুনরায় বিনিয়োগ করুন।">স্থানীয় ব্যাংক/মোবাইল ফাইন্যান্সে উত্তোলন করুন বা দক্ষতায় পুনরায় বিনিয়োগ করুন।</p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div>
+        <div><strong>BD FREELANCER</strong> — <span data-bn="সকলের জন্য" data-en="For everyone">সকলের জন্য</span></div>
+        <div class="small">© <span id="year"></span> BD FREELANCER. All rights reserved.</div>
+      </div>
+
+      <div class="small">
+        <a href="#">Help</a> | <a href="#">Terms</a> | <a href="#">Privacy</a>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // small client-side logic: language toggle, fake stats, form feedback
+    const bnBtn = document.getElementById('bn-btn');
+    const enBtn = document.getElementById('en-btn');
+    const langElems = document.querySelectorAll('[data-en]');
+    const yearEl = document.getElementById('year');
+    const stats = [1248, 982, '100%'];
+    const signupForm = document.getElementById('signup-form');
+    const successMessage = document.getElementById('success-message');
+    
+    // Set current year
+    yearEl.textContent = new Date().getFullYear();
+
+    // Language toggle function
+    function setLang(lang) {
+      langElems.forEach(el => {
+        if (el.getAttribute('data-'+lang)) {
+          el.textContent = el.getAttribute('data-'+lang);
+        }
+      });
+      
+      if (lang === 'en') {
+        enBtn.classList.add('active');
+        enBtn.setAttribute('aria-selected', 'true');
+        bnBtn.classList.remove('active');
+        bnBtn.setAttribute('aria-selected', 'false');
+        document.documentElement.lang = 'en';
+        document.title = "BD FREELANCER — Bangladeshi Freelancing Marketplace";
+      } else {
+        bnBtn.classList.add('active');
+        bnBtn.setAttribute('aria-selected', 'true');
+        enBtn.classList.remove('active');
+        enBtn.setAttribute('aria-selected', 'false');
+        document.documentElement.lang = 'bn';
+        document.title = "BD FREELANCER — বাংলাদেশি ফ্রিল্যান্সিং বাজার";
+      }
+      
+      // Save language preference
+      localStorage.setItem('preferredLanguage', lang);
+    }
+
+    // Animate statistics counters
+    function animateCounters() {
+      const stat1 = document.getElementById('stat-1');
+      const stat2 = document.getElementById('stat-2');
+      
+      let count1 = 0;
+      let count2 = 0;
+      const target1 = stats[0];
+      const target2 = stats[1];
+      const duration = 2000; // 2 seconds
+      const frameRate = 30;
+      const totalFrames = Math.floor(duration / (1000 / frameRate));
+      const increment1 = target1 / totalFrames;
+      const increment2 = target2 / totalFrames;
+      
+      const counter = setInterval(() => {
+        count1 += increment1;
+        count2 += increment2;
+        
+        if (count1 >= target1) {
+          count1 = target1;
+          count2 = target2;
+          clearInterval(counter);
+        }
+        
+        stat1.textContent = Math.floor(count1);
+        stat2.textContent = Math.floor(count2);
+        
+        // Add animation class
+        stat1.classList.add('counting');
+        stat2.classList.add('counting');
+      }, 1000 / frameRate);
+    }
+
+    // Form validation
+    function validateForm() {
+      let isValid = true;
+      const nameInput = document.getElementById('name');
+      const emailInput = document.getElementById('email');
+      const nameError = document.getElementById('name-error');
+      const emailError = document.getElementById('email-error');
+      
+      // Reset errors
+      nameError.style.display = 'none';
+      emailError.style.display = 'none';
+      nameInput.classList.remove('error');
+      emailInput.classList.remove('error');
+      
+      // Validate name
+      if (!nameInput.value.trim()) {
+        nameError.style.display = 'block';
+        nameInput.classList.add('error');
+        isValid = false;
+      }
+      
+      // Validate email/mobile
+      const value = emailInput.value.trim();
+      const isEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+      const isMobile = /^01[3-9]\d{8}$/.test(value);
+      
+      if (!value || (!isEmail && !isMobile)) {
+        emailError.style.display = 'block';
+        emailInput.classList.add('error');
+        isValid = false;
+      }
+      
+      return isValid;
+    }
+
+    // Form submission handler
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      
+      if (validateForm()) {
+        // Simulate form submission
+        const name = document.getElementById('name').value.trim();
+        const role = document.getElementById('role').value;
+        
+        // Show success message
+        successMessage.style.display = 'flex';
+        
+        // Reset form
+        signupForm.reset();
+        
+        // Hide success message after 5 seconds
+        setTimeout(() => {
+          successMessage.style.display = 'none';
+        }, 5000);
+      }
+    }
+
+    // Event listeners
+    bnBtn.addEventListener('click', () => setLang('bn'));
+    enBtn.addEventListener('click', () => setLang('en'));
+    signupForm.addEventListener('submit', handleFormSubmit);
+
+    // Learn more button
+    document.getElementById('learn-more').addEventListener('click', () => {
+      const howSection = document.getElementById('how');
+      howSection.scrollIntoView({ behavior: 'smooth' });
+    });
+
+    // Browse jobs button
+    document.getElementById('browse-jobs').addEventListener('click', () => {
+      alert(document.documentElement.lang === 'en' ? 
+        'Job browsing feature coming soon!' : 
+        'চাকরি ব্রাউজ করার বৈশিষ্ট্য শীঘ্রই আসছে!');
+    });
+
+    // Create profile button
+    document.getElementById('create-profile').addEventListener('click', () => {
+      document.getElementById('signup').scrollIntoView({ behavior: 'smooth' });
+    });
+
+    // Accessibility: keyboard quick keys
+    document.addEventListener('keydown', (e) => {
+      if (e.altKey && e.key.toLowerCase() === 'b') setLang('bn');
+      if (e.altKey && e.key.toLowerCase() === 'e') setLang('en');
+    });
+
+    // Initialize
+    function init() {
+      // Set preferred language if saved
+      const savedLang = localStorage.getItem('preferredLanguage');
+      if (savedLang) {
+        setLang(savedLang);
+      } else {
+        setLang('bn');
+      }
+      
+      // Animate counters when in viewport
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            animateCounters();
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.5 });
+      
+      observer.observe(document.querySelector('.stats'));
+    }
+
+    // Run initialization when DOM is loaded
+    document.addEventListener('DOMContentLoaded', init);
+  </script>
+</body>
+</html>
